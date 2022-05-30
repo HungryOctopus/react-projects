@@ -17,11 +17,11 @@ function App() {
     //checks if the value is empty, if so display alert
     if (!name) {
       // display alert
-     showAlert(true, 'danger', 'please enter a value')
+      showAlert(true, 'danger', 'please enter a value');
     } else if (name && isEditing) {
       // deal with edit
     } else {
-      // show alert
+      showAlert(true, 'success', 'item added to the list');
       const newItem = {
         id: new Date().getTime().toString(), // cheat to have an ID number
         title: name
@@ -31,14 +31,29 @@ function App() {
     }
   };
 
-  const showAlert = (show=false, type="", msg="") => {
-    setAlert({show, type, msg})
-  }
+  const showAlert = (show = false, type = '', msg = '') => {
+    setAlert({ show, type, msg });
+  };
+
+  const clearList = () => {
+    showAlert(true, 'danger', 'empty list');
+    setList([]);
+  };
+
+  const removeItem = (id) => {
+    showAlert(true, 'danger', 'item removed');
+    // if the item id does not match to the id just removed,
+    // it should be placed in the new array
+    setList(list.filter((item) => item.id !== id));
+  };
+
+  
 
   return (
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert} removeAlert={showAlert} />}
+        {alert.show && <Alert {...alert} removeAlert={showAlert}
+        list={list} />}
         <h3>Grocery bud</h3>
         <div className="form-control">
           <input
@@ -55,8 +70,10 @@ function App() {
       </form>
       {list.length > 0 && (
         <div className="grocery-container">
-          <List items={list} />
-          <button className="clear-btn">Clear items</button>
+          <List items={list} removeItem={removeItem} />
+          <button className="clear-btn" onClick={clearList}>
+            Clear items
+          </button>
         </div>
       )}
     </section>
