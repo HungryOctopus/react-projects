@@ -1,52 +1,52 @@
-import React from 'react'
-import { FaBehance, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import React from 'react';
+import { FaBehance, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 export const links = [
   {
     id: 1,
     url: '/',
-    text: 'random',
+    text: 'home'
   },
   {
     id: 2,
     url: '/about',
-    text: 'about',
+    text: 'about'
   },
   {
     id: 3,
     url: '/projects',
-    text: 'projects',
+    text: 'projects'
   },
   {
     id: 4,
     url: '/contact',
-    text: 'contact',
+    text: 'contact'
   },
   {
     id: 5,
-    url: '/profile',
-    text: 'profile',
-  },
-]
+    url: '/profil',
+    text: 'profil'
+  }
+];
 
 export const social = [
   {
     id: 1,
     url: 'https://www.twitter.com',
-    icon: <FaFacebook />,
+    icon: <FaFacebook />
   },
   {
     id: 2,
     url: 'https://www.twitter.com',
-    icon: <FaTwitter />,
+    icon: <FaTwitter />
   },
   {
     id: 3,
     url: 'https://www.twitter.com',
-    icon: <FaLinkedin />,
+    icon: <FaLinkedin />
   },
   {
     id: 4,
     url: 'https://www.twitter.com',
-    icon: <FaBehance />,
-  },
-]
+    icon: <FaBehance />
+  }
+];
